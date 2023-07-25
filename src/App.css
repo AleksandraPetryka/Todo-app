@@ -20,6 +20,9 @@ body .wrapper {
 body .wrapper.dark {
   background-color: hsl(235, 21%, 11%);
 }
+body .wrapper.light {
+  background-color: hsl(0, 0%, 98%);
+}
 body .wrapper header {
   display: flex;
   justify-content: space-between;
@@ -44,10 +47,16 @@ body .wrapper footer {
   .wrapper.dark {
     background-image: url("images/bg-mobile-dark.jpg");
   }
+  .wrapper.light {
+    background-image: url("images/bg-mobile-light.jpg");
+  }
 }
 @media screen and (min-width: 600px) {
   .wrapper.dark {
     background-image: url("images/bg-desktop-dark.jpg");
+  }
+  .wrapper.light {
+    background-image: url("images/bg-desktop-light.jpg");
   }
 }
 

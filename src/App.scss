@@ -22,6 +22,9 @@ body {
     &.dark {
       background-color: $very-dark-blue;
     }
+    &.light {
+      background-color: $very-light-gray;
+    }
 
 
     header {
@@ -53,11 +56,13 @@ body {
   }
 }
 
-}
 @media screen and (max-width: 600px) {
   .wrapper {
     &.dark {
       background-image: url("images/bg-mobile-dark.jpg");
+    }
+    &.light {
+      background-image: url("images/bg-mobile-light.jpg");
     }
   }
 
@@ -67,6 +72,9 @@ body {
   .wrapper {
     &.dark {
       background-image: url("images/bg-desktop-dark.jpg");
+    }
+    &.light {
+      background-image: url("images/bg-desktop-light.jpg");
     }
   }
 

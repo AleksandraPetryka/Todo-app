@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 
 function App() {
     const [todos, setTodos] = useState<Todo[]>([]);
+    const [darkMode, setDarkMode] = useState<boolean>(true);
 
     const addTodoHandler = (todoText: string) => {
         const newTodo = new Todo (todoText);
@@ -28,17 +29,20 @@ function App() {
             return prevTodos.filter(todo => todo.id !== todoId);
         });
     }
+    const themeClass: string = darkMode ? "dark" : "light";
 
     return (
-        <div className='wrapper dark'>
-            <Header/>
+        <div className={`wrapper ${themeClass}`}>
+            <Header darkMode={darkMode} setDarkMode={setDarkMode} />
             <main>
-                <TodoForm onAddTodo={addTodoHandler}/>
+                <TodoForm onAddTodo={addTodoHandler} />
                 <Todos items={todos}/>
             </main>
             <Footer/>
         </div>
     );
 }
+
+
 
 export default App;
