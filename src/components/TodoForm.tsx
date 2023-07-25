@@ -1,8 +1,8 @@
 import React from "react";
-import { useRef } from "react"
+import { useRef } from "react";
 
-const TodoForm: React.FC = (props) => {
-    const todoTextInputRef = useRef<HTMLInputElement>();
+const TodoForm: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
+    const todoTextInputRef = useRef<HTMLInputElement>(null);
     const submitHandler = (event: React.FormEvent) => {
         event.preventDefault();
 
@@ -12,13 +12,17 @@ const TodoForm: React.FC = (props) => {
             //throw an error
             return;
         }
+        props.onAddTodo(enteredText);
     };
 
     return (
-        <form onSubmit={submitHandler}>
-        <label htmlFor='text' >Create new todo...</label>
-            <input type='text' id='text' ref={todoTextInputRef} />
-        </form>
+        <div className='form-box'>
+            <span className='checkbox'></span>
+            <form onSubmit={submitHandler}>
+                <input type='text' id='text' placeholder="Create new todo..." ref={todoTextInputRef} />
+            </form>
+        </div>
+
     );
 };
 
