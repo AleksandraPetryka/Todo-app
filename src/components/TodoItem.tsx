@@ -1,8 +1,19 @@
 import React from "react";
+import Todo from "../models/todo";
 
-const TodoItem: React.FC<{title: string}> = (props) => {
+interface ItemProps {
+    title: string;
+    completed: boolean;
+    key: string;
+    setIsCompleted: (isCompleted: boolean) => void;
+}
+
+const TodoItem: React.FC<ItemProps> = (props) => {
     return (
-            <li>{props.title}</li>
+        <li className={props.completed ? "completed" : "uncompleted"}>
+            <input onChange={(event: React.ChangeEvent) => props.setIsCompleted(!props.completed)} type="checkbox" checked={props.completed}/>
+            <p>{props.title}</p>
+        </li>
     );
 }
 

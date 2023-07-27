@@ -5,11 +5,21 @@ import TodoForm from "./components/TodoForm";
 import { useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import TodoListFilters from "./components/TodoListFilters";
 
+const data = [
+    new Todo('Complete online JavaScript course'),
+    new Todo ('Jog around the park 3x'),
+    new Todo ('10 minutes meditation'),
+    new Todo ('Read for 1 hour'),
+    new Todo ('Pick up groceries'),
+    new Todo ('Complete Todo App on Frontend Mentor')
+];
 
 function App() {
-    const [todos, setTodos] = useState<Todo[]>([]);
+    const [todos, setTodos] = useState<Todo[]>(data);
     const [darkMode, setDarkMode] = useState<boolean>(true);
+
 
     const addTodoHandler = (todoText: string) => {
         const newTodo = new Todo (todoText);
@@ -33,12 +43,17 @@ function App() {
 
     return (
         <div className={`wrapper ${themeClass}`}>
-            <Header darkMode={darkMode} setDarkMode={setDarkMode} />
-            <main>
-                <TodoForm onAddTodo={addTodoHandler} />
-                <Todos items={todos}/>
-            </main>
-            <Footer/>
+            <div className='container'>
+                <Header darkMode={darkMode} setDarkMode={setDarkMode}/>
+                <main>
+                    <TodoForm onAddTodo={addTodoHandler}/>
+                    <section className='todo-list'>
+                        <Todos items={todos}/>
+                        <TodoListFilters/>
+                    </section>
+                </main>
+                <Footer/>
+            </div>
         </div>
     );
 }

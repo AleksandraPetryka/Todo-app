@@ -9,7 +9,7 @@
 body {
   font-size: 18px;
   font-family: "Josefin Sans", sans-serif;
-  font-weight: 700;
+  font-weight: 400;
 }
 body .wrapper {
   padding: 48px;
@@ -20,25 +20,114 @@ body .wrapper {
 body .wrapper.dark {
   background-color: hsl(235, 21%, 11%);
 }
+body .wrapper.dark .container main .form-box {
+  background-color: hsl(235, 24%, 19%);
+}
+body .wrapper.dark .container main .form-box input {
+  background-color: hsl(235, 24%, 19%);
+  border: none;
+  color: black;
+  font-weight: 400;
+}
+body .wrapper.dark .container main .form-box input::placeholder {
+  color: hsl(234, 11%, 52%);
+}
+body .wrapper.dark .container main ul {
+  background-color: hsl(235, 24%, 19%);
+}
+body .wrapper.dark .container main ul li.uncompleted {
+  border-bottom-color: hsl(237, 14%, 26%);
+  color: hsl(234, 11%, 52%);
+}
+body .wrapper.dark .container main ul li.completed {
+  color: hsl(233, 14%, 35%);
+  text-decoration-line: line-through;
+}
 body .wrapper.light {
   background-color: hsl(0, 0%, 98%);
 }
-body .wrapper header {
+body .wrapper.light .container main .form-box {
+  background-color: hsl(236, 33%, 92%);
+}
+body .wrapper.light .container main .form-box input {
+  background-color: hsl(236, 33%, 92%);
+  border: none;
+  color: black;
+  font-weight: 400;
+}
+body .wrapper.light .container main .form-box input::placeholder {
+  color: hsl(234, 11%, 52%);
+}
+body .wrapper.light .container main ul {
+  background-color: hsl(236, 33%, 92%);
+}
+body .wrapper.light .container main ul li.uncompleted {
+  color: hsl(236, 9%, 61%);
+  border-bottom-color: hsl(234, 39%, 85%);
+}
+body .wrapper.light .container main ul li.completed {
+  color: hsl(233, 11%, 84%);
+  text-decoration-line: line-through;
+  border-bottom-color: hsl(234, 39%, 85%);
+}
+body .wrapper .container {
+  max-width: 540px;
+  margin: 0 auto;
+}
+body .wrapper .container header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 4.8rem;
+  margin-bottom: 48px;
   color: white;
 }
-body .wrapper header button {
+body .wrapper .container header button {
   border: none;
   background: transparent;
   cursor: pointer;
 }
-body .wrapper header img {
+body .wrapper .container header img {
   overflow-clip-margin: content-box;
   overflow: clip;
 }
-body .wrapper footer {
+body .wrapper .container main {
+  display: flex;
+  flex-direction: column;
+}
+body .wrapper .container main .form-box {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 0.8rem;
+  margin-bottom: 28px;
+  width: 100%;
+}
+body .wrapper .container main .form-box input {
+  margin-right: 1.6rem;
+  cursor: pointer;
+}
+body .wrapper .container main .todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .wrapper .container main .todo-list ul {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.8rem;
+  width: 100%;
+  justify-content: stretch;
+  margin-bottom: 50px;
+  list-style: unset;
+}
+body .wrapper .container main .todo-list ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: 0.1rem solid hsl(236, 33%, 92%);
+  gap: 35px;
+  padding: 20px;
+}
+body .wrapper .container footer {
   text-align: center;
   line-height: 1.5;
 }

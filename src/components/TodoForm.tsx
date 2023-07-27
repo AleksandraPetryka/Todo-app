@@ -1,8 +1,12 @@
-import React from "react";
-import { useRef } from "react";
+import React, {useEffect} from "react";
+import {useRef} from "react";
 
 const TodoForm: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
     const todoTextInputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        todoTextInputRef.current?.focus();
+    }, []);
     const submitHandler = (event: React.FormEvent) => {
         event.preventDefault();
 
@@ -17,9 +21,9 @@ const TodoForm: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
 
     return (
         <div className='form-box'>
-            <span className='checkbox'></span>
+            <input type='checkbox' className='checkbox'></input>
             <form onSubmit={submitHandler}>
-                <input type='text' id='text' placeholder="Create new todo..." ref={todoTextInputRef} />
+                <input type='text' id='text' placeholder="Create new todo..." ref={todoTextInputRef}/>
             </form>
         </div>
 
