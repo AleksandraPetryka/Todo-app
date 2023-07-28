@@ -25,32 +25,43 @@ body .wrapper.dark .container main .form-box {
 }
 body .wrapper.dark .container main .form-box input {
   background-color: hsl(235, 24%, 19%);
-  border: none;
-  color: black;
+  border: transparent;
+  color: hsl(234, 11%, 52%);
   font-weight: 400;
 }
 body .wrapper.dark .container main .form-box input::placeholder {
   color: hsl(234, 11%, 52%);
 }
-body .wrapper.dark .container main ul {
+body .wrapper.dark .container main .todo-list ul {
   background-color: hsl(235, 24%, 19%);
 }
-body .wrapper.dark .container main ul li.uncompleted {
+body .wrapper.dark .container main .todo-list ul li.uncompleted {
   border-bottom-color: hsl(237, 14%, 26%);
+  border-bottom-width: 1px;
   color: hsl(234, 11%, 52%);
 }
-body .wrapper.dark .container main ul li.completed {
+body .wrapper.dark .container main .todo-list ul li.completed {
   color: hsl(233, 14%, 35%);
   text-decoration-line: line-through;
+  border-bottom-width: 1px;
+  border-bottom-color: hsl(237, 14%, 26%);
+}
+body .wrapper.dark .container main .todo-list .dashboard {
+  background-color: hsl(235, 24%, 19%);
+  color: hsl(234, 11%, 52%);
+}
+body .wrapper.dark .container main .control-for-mobile .dashboard {
+  background-color: hsl(235, 24%, 19%);
+  color: hsl(234, 11%, 52%);
 }
 body .wrapper.light {
   background-color: hsl(0, 0%, 98%);
 }
 body .wrapper.light .container main .form-box {
-  background-color: hsl(236, 33%, 92%);
+  background-color: white;
 }
 body .wrapper.light .container main .form-box input {
-  background-color: hsl(236, 33%, 92%);
+  background-color: white;
   border: none;
   color: black;
   font-weight: 400;
@@ -58,17 +69,27 @@ body .wrapper.light .container main .form-box input {
 body .wrapper.light .container main .form-box input::placeholder {
   color: hsl(234, 11%, 52%);
 }
-body .wrapper.light .container main ul {
-  background-color: hsl(236, 33%, 92%);
+body .wrapper.light .container main .todo-list ul {
+  background-color: white;
 }
-body .wrapper.light .container main ul li.uncompleted {
+body .wrapper.light .container main .todo-list ul li.uncompleted {
   color: hsl(236, 9%, 61%);
-  border-bottom-color: hsl(234, 39%, 85%);
+  border-bottom-color: hsl(236, 33%, 92%);
+  border-bottom-width: 1px;
 }
-body .wrapper.light .container main ul li.completed {
+body .wrapper.light .container main .todo-list ul li.completed {
   color: hsl(233, 11%, 84%);
   text-decoration-line: line-through;
-  border-bottom-color: hsl(234, 39%, 85%);
+  border-bottom-color: hsl(236, 33%, 92%);
+  border-bottom-width: 1px;
+}
+body .wrapper.light .container main .todo-list .dashboard {
+  background-color: white;
+  color: hsl(236, 9%, 61%);
+}
+body .wrapper.light .container main .control-for-mobile .dashboard {
+  background-color: white;
+  color: hsl(236, 9%, 61%);
 }
 body .wrapper .container {
   max-width: 540px;
@@ -104,6 +125,8 @@ body .wrapper .container main .form-box {
 body .wrapper .container main .form-box input {
   margin-right: 1.6rem;
   cursor: pointer;
+  font-size: 18px;
+  outline: none;
 }
 body .wrapper .container main .todo-list {
   display: flex;
@@ -116,7 +139,6 @@ body .wrapper .container main .todo-list ul {
   border-radius: 0.8rem;
   width: 100%;
   justify-content: stretch;
-  margin-bottom: 50px;
   list-style: unset;
 }
 body .wrapper .container main .todo-list ul li {
@@ -127,12 +149,53 @@ body .wrapper .container main .todo-list ul li {
   gap: 35px;
   padding: 20px;
 }
+body .wrapper .container main .dashboard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 28px;
+  padding: 20px;
+  border-radius: 0.8rem;
+}
+body .wrapper .container main .dashboard button {
+  font-size: 18px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: hsl(236, 9%, 61%);
+  font-weight: 400;
+}
+body .wrapper .container main .dashboard button .active {
+  font-weight: 700;
+}
+body .wrapper .container main .dashboard .filters {
+  gap: 8px;
+}
 body .wrapper .container footer {
   text-align: center;
   line-height: 1.5;
 }
 
 @media screen and (max-width: 600px) {
+  .wrapper .todo-list .dashboard {
+    justify-content: space-between;
+  }
+  .wrapper .todo-list .dashboard .filters {
+    display: none;
+  }
+  .wrapper .control-for-mobile .dashboard {
+    justify-content: center;
+  }
+  .wrapper .control-for-mobile .dashboard .items-left {
+    display: none;
+  }
+  .wrapper .control-for-mobile .dashboard .filters {
+    display: flex;
+  }
+  .wrapper .control-for-mobile .dashboard .clear-completed {
+    display: none;
+  }
   .wrapper.dark {
     background-image: url("images/bg-mobile-dark.jpg");
   }
@@ -141,6 +204,15 @@ body .wrapper .container footer {
   }
 }
 @media screen and (min-width: 600px) {
+  .wrapper .todo-list .dashboard {
+    justify-content: space-between;
+  }
+  .wrapper .todo-list .dashboard .filters {
+    display: flex;
+  }
+  .wrapper .control-for-mobile {
+    display: none;
+  }
   .wrapper.dark {
     background-image: url("images/bg-desktop-dark.jpg");
   }

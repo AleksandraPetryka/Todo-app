@@ -30,8 +30,8 @@ body {
 
             input {
               background-color: $very-dark-desaturated-blue;
-              border: none;
-              color: black;
+              border: transparent;
+              color: $dark-grayish-blue-dark-theme;
               font-weight: $font-weight-regular;
 
               &::placeholder {
@@ -39,21 +39,33 @@ body {
               }
             }
           }
+          .todo-list {
+            ul {
+              background-color: $very-dark-desaturated-blue;
 
-          ul {
-            background-color: $very-dark-desaturated-blue;
+              li.uncompleted {
+                border-bottom-color: $very-dark-grayish-blue-secondary-dark-theme;
+                border-bottom-width: 1px;
+                color: $dark-grayish-blue-dark-theme;
+              }
 
-            li.uncompleted {
-              border-bottom-color: $very-dark-grayish-blue-secondary-dark-theme;
-
+              li.completed {
+                color: $very-dark-grayish-blue-dark-theme;
+                text-decoration-line: line-through;
+                border-bottom-width: 1px;
+                border-bottom-color: $very-dark-grayish-blue-secondary-dark-theme;
+              }
+            }
+            .dashboard {
+              background-color: $very-dark-desaturated-blue;
               color: $dark-grayish-blue-dark-theme;
             }
-
-            li.completed {
-              color: $very-dark-grayish-blue-dark-theme;
-              text-decoration-line: line-through;
+          }
+          .control-for-mobile {
+            .dashboard {
+              background-color: $very-dark-desaturated-blue;
+              color: $dark-grayish-blue-dark-theme;
             }
-
           }
         }
       }
@@ -66,10 +78,10 @@ body {
 
         main {
           .form-box {
-            background-color: $very-light-grayish-blue;
+            background-color: white;
 
             input {
-              background-color: $very-light-grayish-blue;
+              background-color: white;
               border: none;
               color: black;
               font-weight: $font-weight-regular;
@@ -79,21 +91,35 @@ body {
               }
             }
           }
+          .todo-list {
+            ul {
+              background-color: white;
 
-          ul {
-            background-color: $very-light-grayish-blue;
+              li.uncompleted {
+                color: $dark-grayish-blue;
+                border-bottom-color: $very-light-grayish-blue;
+                border-bottom-width: 1px;
 
-            li.uncompleted {
-              color: $dark-grayish-blue;
-              border-bottom-color: $light-grayish-blue-dark-theme;
+              }
 
+              li.completed {
+                color: $light-grayish-blue;
+                text-decoration-line: line-through;
+                border-bottom-color: $very-light-grayish-blue;
+                border-bottom-width: 1px;
+
+              }
             }
 
-            li.completed {
-              color: $light-grayish-blue;
-              text-decoration-line: line-through;
-              border-bottom-color: $light-grayish-blue-dark-theme;
-
+            .dashboard {
+              background-color: white;
+              color: $dark-grayish-blue;
+            }
+          }
+          .control-for-mobile {
+            .dashboard {
+              background-color: white;
+              color: $dark-grayish-blue;
             }
           }
         }
@@ -136,7 +162,8 @@ body {
           input {
             margin-right: 1.6rem;
             cursor: pointer;
-
+            font-size: 18px;
+            outline: none;
           }
         }
 
@@ -151,7 +178,6 @@ body {
             border-radius: 0.8rem;
             width: 100%;
             justify-content: stretch;
-            margin-bottom: 50px;
             list-style: unset;
 
             li {
@@ -162,6 +188,32 @@ body {
               gap: 35px;
               padding: 20px;
             }
+          }
+        }
+
+        .dashboard {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: 100%;
+          margin-bottom: 28px;
+          padding: 20px;
+          border-radius: 0.8rem;
+
+          button {
+            font-size: 18px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: $dark-grayish-blue;
+            font-weight: $font-weight-regular;
+            .active {
+              font-weight: $font-weight-bold;
+            }
+          }
+
+          .filters {
+            gap: 8px;
           }
         }
       }
@@ -177,9 +229,33 @@ body {
 
 @media screen and (max-width: 600px) {
   .wrapper {
+    .todo-list {
+      .dashboard {
+        justify-content: space-between;
+        .filters {
+          display: none;
+        }
+      }
+    }
+    .control-for-mobile {
+      .dashboard {
+        justify-content: center;
+
+        .items-left {
+          display: none;
+        }
+        .filters {
+           display: flex;
+        }
+        .clear-completed {
+          display: none;
+        }
+      }
+
+    }
     &.dark {
       background-image: url("images/bg-mobile-dark.jpg");
-    }
+     }
 
     &.light {
       background-image: url("images/bg-mobile-light.jpg");
@@ -190,6 +266,17 @@ body {
 
 @media screen and (min-width: 600px) {
   .wrapper {
+    .todo-list {
+        .dashboard {
+          justify-content: space-between;
+          .filters {
+            display: flex;
+            }
+        }
+    }
+    .control-for-mobile {
+      display: none;
+    }
     &.dark {
       background-image: url("images/bg-desktop-dark.jpg");
     }

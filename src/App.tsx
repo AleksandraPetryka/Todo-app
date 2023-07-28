@@ -5,7 +5,7 @@ import TodoForm from "./components/TodoForm";
 import { useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import TodoListFilters from "./components/TodoListFilters";
+import TodoControlPanel from "./components/TodoControlPanel";
 
 const data = [
     new Todo('Complete online JavaScript course'),
@@ -49,7 +49,10 @@ function App() {
                     <TodoForm onAddTodo={addTodoHandler}/>
                     <section className='todo-list'>
                         <Todos items={todos}/>
-                        <TodoListFilters/>
+                        <TodoControlPanel/>
+                    </section>
+                    <section className='control-for-mobile'>
+                        <TodoControlPanel/>
                     </section>
                 </main>
                 <Footer/>
