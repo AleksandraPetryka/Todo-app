@@ -1,4 +1,8 @@
+import { useTodo } from "../context/useTodo";
+
 const TodoControlPanel = () => {
+    const { removeCompletedTodos } = useTodo();
+
     return (
         <div className='dashboard'>
             <div className="items-left">Items left</div>
@@ -8,7 +12,7 @@ const TodoControlPanel = () => {
                 <button>Completed</button>
             </div>
             <div className="clear-completed">
-                <button>Clear Completed</button>
+                <button onClick={removeCompletedTodos}>Clear Completed</button>
             </div>
         </div>
     );

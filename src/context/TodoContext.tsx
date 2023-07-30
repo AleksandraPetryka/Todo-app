@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, MouseEventHandler, useMemo, useState} from 'react';
 import Todo from "../models/todo";
 
 const data = [
@@ -14,13 +14,14 @@ interface TodoContextProps {
     items: Todo[];
     addTodoHandler: (todoText: string) => void;
     updateTodoHandler: (todoId: string) => void;
-    removeTodoHandler: (todoId: string) => void;
+    removeCompletedTodos: () => void;
 
 }
 export const TodoContext = createContext<TodoContextProps | undefined>(undefined)
 
 export const TodoProvider = (props: { children: React.ReactNode }) => {
     const [todos, setTodos] = useState<Todo[]>(data);
+    const [filterStatus, setFilterStatus] = useState("all");
 
     const addTodoHandler = (todoText: string) => {
         const newTodo = new Todo (todoText);
@@ -42,16 +43,29 @@ export const TodoProvider = (props: { children: React.ReactNode }) => {
         });
     };
 
-    const removeTodoHandler = (todoId: string) => {
-        setTodos((prevTodos) => {
-            return prevTodos.filter(todo => todo.id !== todoId);
-        });
-    }
+    const filteredTodos = useMemo(() => {
+        switch (filterStatus) {
+            case "active":
+                return todos.filter((todo) => !todo.completed);
+
+            case "completed":
+                return todos.filter((todo) => todo.completed);
+
+            default:
+                return todos;
+        }
+    }, [todos, filterStatus]);
+
+    const removeCompletedTodos = () => {
+        setTodos(todos.filter((todo) => !todo.completed));
+        setFilterStatus("all");
+    };
+
     const value: TodoContextProps = {
-        items: todos,
+        items: filteredTodos,
         addTodoHandler,
         updateTodoHandler,
-        removeTodoHandler
+        removeCompletedTodos
     }
 
     return (
