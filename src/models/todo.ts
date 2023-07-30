@@ -1,9 +1,10 @@
+import { nanoid } from 'nanoid';
 class Todo {
     id: string
     title: string;
     completed: boolean;
     constructor(todoText: string) {
-        this.id = new Date().toISOString();
+        this.id = nanoid();
         this.title = todoText;
         this.completed = false;
     }

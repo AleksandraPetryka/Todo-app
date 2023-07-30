@@ -1,8 +1,11 @@
 import React, {useEffect} from "react";
 import {useRef} from "react";
+import { useTodo } from "../context/useTodo";
 
-const TodoForm: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
+
+const TodoForm = () => {
     const todoTextInputRef = useRef<HTMLInputElement>(null);
+    const { addTodoHandler } = useTodo();
 
     useEffect(() => {
         todoTextInputRef.current?.focus();
@@ -16,7 +19,7 @@ const TodoForm: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
             //throw an error
             return;
         }
-        props.onAddTodo(enteredText);
+        addTodoHandler(enteredText);
     };
 
     return (
