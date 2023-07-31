@@ -44,7 +44,7 @@ export const TodoProvider = (props: { children: React.ReactNode }) => {
         });
     };
 
-    const filteredTodos = useMemo(() => {
+    const filteredTodos: Todo[] = useMemo(() => {
         switch (filterStatus) {
             case "active":
                 return todos.filter((todo) => !todo.completed);

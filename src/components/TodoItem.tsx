@@ -16,10 +16,9 @@ const TodoItem: React.FC<ItemProps> = (props) => {
             id={props.id}
         >
             <input
-                onChange={(event: React.ChangeEvent) => {updateTodoHandler(props.id)}}
                 type="checkbox"
-                checked={props.completed}
             />
+            <span className={props.completed ? "completed" : "uncompleted"} onClick={(event: React.MouseEvent) => {updateTodoHandler(props.id)}}></span>
             <p>{props.title}</p>
         </li>
     );

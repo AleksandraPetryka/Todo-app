@@ -39,28 +39,46 @@ body {
               }
             }
           }
+
           .todo-list {
             ul {
               background-color: $very-dark-desaturated-blue;
 
-              li.uncompleted {
+              .uncompleted {
                 border-bottom-color: $very-dark-grayish-blue-secondary-dark-theme;
                 border-bottom-width: 1px;
                 color: $dark-grayish-blue-dark-theme;
+                &:hover::after {
+                  content: "";
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  width: 19px;
+                  height: 19px;
+                  border-radius: 50%;
+                  background: $very-dark-desaturated-blue;
+                }
+
+                span {
+                  border: 1px solid $very-dark-grayish-blue-dark-theme;
+                }
               }
 
-              li.completed {
+              .completed {
                 color: $very-dark-grayish-blue-dark-theme;
                 text-decoration-line: line-through;
                 border-bottom-width: 1px;
                 border-bottom-color: $very-dark-grayish-blue-secondary-dark-theme;
               }
             }
+
             .dashboard {
               background-color: $very-dark-desaturated-blue;
               color: $dark-grayish-blue-dark-theme;
             }
           }
+
           .control-for-mobile {
             .dashboard {
               background-color: $very-dark-desaturated-blue;
@@ -91,23 +109,37 @@ body {
               }
             }
           }
+
           .todo-list {
             ul {
               background-color: white;
 
-              li.uncompleted {
+              .uncompleted {
                 color: $dark-grayish-blue;
                 border-bottom-color: $very-light-grayish-blue;
                 border-bottom-width: 1px;
+                &:hover::after {
+                  content: "";
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  width: 19px;
+                  height: 19px;
+                  border-radius: 50%;
+                  background: white;
+                }
 
+                span {
+                  border: 1px solid $light-grayish-blue-dark-theme;
+                }
               }
 
-              li.completed {
+              .completed {
                 color: $light-grayish-blue;
                 text-decoration-line: line-through;
                 border-bottom-color: $very-light-grayish-blue;
                 border-bottom-width: 1px;
-
               }
             }
 
@@ -116,6 +148,7 @@ body {
               color: $dark-grayish-blue;
             }
           }
+
           .control-for-mobile {
             .dashboard {
               background-color: white;
@@ -129,6 +162,7 @@ body {
     .container {
       max-width: 540px;
       margin: 0 auto;
+
       header {
         display: flex;
         justify-content: space-between;
@@ -187,6 +221,59 @@ body {
               border-bottom: 0.1rem solid $very-light-grayish-blue;
               gap: 35px;
               padding: 20px;
+
+              input {
+                cursor: pointer;
+                position: absolute;
+                opacity: 0;
+              }
+
+              .completed, .uncompleted {
+                cursor: pointer;
+                position: relative;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+              }
+
+              .completed::before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: $check-background;
+              }
+              .completed::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 20px;
+                height: 20px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url("./images/icon-check.svg");
+              }
+              .uncompleted {
+                &:hover::before {
+                  content: "";
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  width: 20px;
+                  height: 20px;
+                  border-radius: 50%;
+                  background: $check-background;
+                }
+
+              }
+
             }
           }
         }
@@ -207,6 +294,7 @@ body {
             cursor: pointer;
             color: $dark-grayish-blue;
             font-weight: $font-weight-regular;
+
             .active {
               font-weight: $font-weight-bold;
             }
@@ -232,11 +320,13 @@ body {
     .todo-list {
       .dashboard {
         justify-content: space-between;
+
         .filters {
           display: none;
         }
       }
     }
+
     .control-for-mobile {
       .dashboard {
         justify-content: center;
@@ -244,18 +334,21 @@ body {
         .items-left {
           display: none;
         }
+
         .filters {
-           display: flex;
+          display: flex;
         }
+
         .clear-completed {
           display: none;
         }
       }
 
     }
+
     &.dark {
       background-image: url("images/bg-mobile-dark.jpg");
-     }
+    }
 
     &.light {
       background-image: url("images/bg-mobile-light.jpg");
@@ -267,16 +360,19 @@ body {
 @media screen and (min-width: 600px) {
   .wrapper {
     .todo-list {
-        .dashboard {
-          justify-content: space-between;
-          .filters {
-            display: flex;
-            }
+      .dashboard {
+        justify-content: space-between;
+
+        .filters {
+          display: flex;
         }
+      }
     }
+
     .control-for-mobile {
       display: none;
     }
+
     &.dark {
       background-image: url("images/bg-desktop-dark.jpg");
     }

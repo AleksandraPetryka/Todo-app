@@ -35,12 +35,26 @@ body .wrapper.dark .container main .form-box input::placeholder {
 body .wrapper.dark .container main .todo-list ul {
   background-color: hsl(235, 24%, 19%);
 }
-body .wrapper.dark .container main .todo-list ul li.uncompleted {
+body .wrapper.dark .container main .todo-list ul .uncompleted {
   border-bottom-color: hsl(237, 14%, 26%);
   border-bottom-width: 1px;
   color: hsl(234, 11%, 52%);
 }
-body .wrapper.dark .container main .todo-list ul li.completed {
+body .wrapper.dark .container main .todo-list ul .uncompleted:hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: hsl(235, 24%, 19%);
+}
+body .wrapper.dark .container main .todo-list ul .uncompleted span {
+  border: 1px solid hsl(233, 14%, 35%);
+}
+body .wrapper.dark .container main .todo-list ul .completed {
   color: hsl(233, 14%, 35%);
   text-decoration-line: line-through;
   border-bottom-width: 1px;
@@ -72,12 +86,26 @@ body .wrapper.light .container main .form-box input::placeholder {
 body .wrapper.light .container main .todo-list ul {
   background-color: white;
 }
-body .wrapper.light .container main .todo-list ul li.uncompleted {
+body .wrapper.light .container main .todo-list ul .uncompleted {
   color: hsl(236, 9%, 61%);
   border-bottom-color: hsl(236, 33%, 92%);
   border-bottom-width: 1px;
 }
-body .wrapper.light .container main .todo-list ul li.completed {
+body .wrapper.light .container main .todo-list ul .uncompleted:hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: white;
+}
+body .wrapper.light .container main .todo-list ul .uncompleted span {
+  border: 1px solid hsl(234, 39%, 85%);
+}
+body .wrapper.light .container main .todo-list ul .completed {
   color: hsl(233, 11%, 84%);
   text-decoration-line: line-through;
   border-bottom-color: hsl(236, 33%, 92%);
@@ -148,6 +176,52 @@ body .wrapper .container main .todo-list ul li {
   border-bottom: 0.1rem solid hsl(236, 33%, 92%);
   gap: 35px;
   padding: 20px;
+}
+body .wrapper .container main .todo-list ul li input {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+}
+body .wrapper .container main .todo-list ul li .completed, body .wrapper .container main .todo-list ul li .uncompleted {
+  cursor: pointer;
+  position: relative;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+body .wrapper .container main .todo-list ul li .completed::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+body .wrapper .container main .todo-list ul li .completed::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("./images/icon-check.svg");
+}
+body .wrapper .container main .todo-list ul li .uncompleted:hover::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 body .wrapper .container main .dashboard {
   display: flex;
