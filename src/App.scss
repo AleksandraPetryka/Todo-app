@@ -264,6 +264,7 @@ body {
           display: flex;
           flex-direction: column;
           align-items: center;
+          border-radius: 0.4rem;
 
           ul {
             display: flex;
@@ -363,7 +364,6 @@ body {
           flex-direction: row;
           align-items: center;
           width: 100%;
-          margin-bottom: 28px;
           padding: 20px;
 
           button {
@@ -387,6 +387,7 @@ body {
 
 
       footer {
+        margin-top: 20px;
         text-align: center;
         line-height: 1.5;
       }
@@ -427,6 +428,7 @@ body {
 
     .control-for-mobile {
       .dashboard {
+        margin-top: 20px;
         justify-content: center;
         border-radius: 0.8rem;
 
@@ -450,10 +452,16 @@ body {
 
     &.dark {
       background-image: url("images/bg-mobile-dark.jpg");
+      .todo-list {
+        box-shadow: -1px 5px 20px 10px rgba(37, 39, 60, 0.2);
+      }
     }
 
     &.light {
       background-image: url("images/bg-mobile-light.jpg");
+        .todo-list {
+            box-shadow: -1px 5px 20px 10px rgba(157, 162, 235, 0.3);
+        }
     }
   }
 
@@ -481,6 +489,7 @@ body {
       .dashboard {
         justify-content: space-between;
         border-radius: 0 0 0.4rem 0.4rem;
+        margin-bottom: 0;
 
         .filters {
           display: flex;
@@ -494,10 +503,16 @@ body {
 
     &.dark {
       background-image: url("images/bg-desktop-dark.jpg");
+      .todo-list {
+        box-shadow: -1px 5px 20px 10px rgba(37, 39, 60, 0.2);
+      }
     }
 
     &.light {
       background-image: url("images/bg-desktop-light.jpg");
+        .todo-list {
+          box-shadow: -1px 5px 20px 10px rgba(157, 162, 235, 0.3);
+        }
     }
   }
 

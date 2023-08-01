@@ -1,11 +1,11 @@
 import { useTodo } from "../context/useTodo";
 
 const TodoControlPanel = () => {
-    const { removeCompletedTodos, setFilterStatus, filterStatus } = useTodo();
+    const { removeCompletedTodos, setFilterStatus, filterStatus, activeCount } = useTodo();
 
     return (
         <div className='dashboard'>
-            <div className="items-left">Items left</div>
+            <div className="items-left">{activeCount} Items left</div>
             <div className="filters">
                 <button
                     className={filterStatus === 'all'? 'active' : ''}

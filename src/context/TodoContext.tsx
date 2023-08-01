@@ -18,6 +18,7 @@ interface TodoContextProps {
     setFilterStatus: (status: string) => void;
     filterStatus: string;
     removeOneTodo: (todoId: string) => void;
+    activeCount: number;
 }
 export const TodoContext = createContext<TodoContextProps | undefined>(undefined)
 
@@ -69,6 +70,8 @@ export const TodoProvider = (props: { children: React.ReactNode }) => {
         });
     };
 
+    const activeCount = todos.filter((todo) => !todo.completed).length;
+
     const value: TodoContextProps = {
         items: filteredTodos,
         addTodoHandler,
@@ -76,7 +79,8 @@ export const TodoProvider = (props: { children: React.ReactNode }) => {
         removeCompletedTodos,
         setFilterStatus,
         filterStatus,
-        removeOneTodo
+        removeOneTodo,
+        activeCount
     };
 
     return (
