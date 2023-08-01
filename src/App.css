@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Overpass:wght@100&display=swap");
 *,
 *::before,
 *::after {
@@ -7,12 +8,13 @@
 }
 
 body {
+  all: unset;
   font-size: 18px;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Josefin Sans", sans-serif, "Overpass", sans-serif, monospace;
   font-weight: 400;
 }
 body .wrapper {
-  padding: 48px;
+  padding: 48px 24px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top;
@@ -29,7 +31,7 @@ body .wrapper.dark .container main .form-box .checkmark {
 body .wrapper.dark .container main .form-box form input {
   background-color: hsl(235, 24%, 19%);
   border: transparent;
-  color: white;
+  color: hsl(234, 39%, 85%);
   font-weight: 400;
 }
 body .wrapper.dark .container main .form-box form input::placeholder {
@@ -41,7 +43,10 @@ body .wrapper.dark .container main .todo-list ul {
 body .wrapper.dark .container main .todo-list ul .uncompleted {
   border-bottom-color: hsl(237, 14%, 26%);
   border-bottom-width: 1px;
-  color: hsl(234, 11%, 52%);
+  color: hsl(234, 39%, 85%);
+}
+body .wrapper.dark .container main .todo-list ul .uncompleted:hover::after {
+  background-color: hsl(235, 24%, 19%);
 }
 body .wrapper.dark .container main .todo-list ul .uncompleted span {
   border: 1px solid hsl(233, 14%, 35%);
@@ -57,11 +62,11 @@ body .wrapper.dark .container main .todo-list .dashboard {
   color: hsl(234, 11%, 52%);
 }
 body .wrapper.dark .container main .todo-list .dashboard .filters button:hover {
-  color: white;
+  color: hsl(236, 33%, 92%);
   font-weight: 700;
 }
 body .wrapper.dark .container main .todo-list .dashboard .clear-completed button:hover {
-  color: white;
+  color: hsl(236, 33%, 92%);
   font-weight: 700;
 }
 body .wrapper.dark .container main .control-for-mobile .dashboard {
@@ -69,7 +74,7 @@ body .wrapper.dark .container main .control-for-mobile .dashboard {
   color: hsl(234, 11%, 52%);
 }
 body .wrapper.dark .container main .control-for-mobile .dashboard .filters button:hover {
-  color: white;
+  color: hsl(236, 33%, 92%);
   font-weight: 700;
 }
 body .wrapper.light {
@@ -84,7 +89,7 @@ body .wrapper.light .container main .form-box .checkmark {
 body .wrapper.light .container main .form-box form input {
   background-color: white;
   border: none;
-  color: black;
+  color: hsl(235, 24%, 19%);
   font-weight: 400;
 }
 body .wrapper.light .container main .form-box form input::placeholder {
@@ -94,9 +99,12 @@ body .wrapper.light .container main .todo-list ul {
   background-color: white;
 }
 body .wrapper.light .container main .todo-list ul .uncompleted {
-  color: hsl(236, 9%, 61%);
+  color: hsl(235, 24%, 19%);
   border-bottom-color: hsl(236, 33%, 92%);
   border-bottom-width: 1px;
+}
+body .wrapper.light .container main .todo-list ul .uncompleted:hover::after {
+  background-color: white;
 }
 body .wrapper.light .container main .todo-list ul .uncompleted span {
   border: 1px solid hsl(234, 39%, 85%);
@@ -134,6 +142,7 @@ body .wrapper .container {
 body .wrapper .container header {
   display: flex;
   justify-content: space-between;
+  letter-spacing: 10px;
   margin-bottom: 48px;
   color: white;
 }
@@ -154,7 +163,7 @@ body .wrapper .container main .form-box {
   display: flex;
   align-items: center;
   padding: 20px;
-  border-radius: 0.8rem;
+  border-radius: 0.4rem;
   margin-bottom: 28px;
   width: 100%;
 }
@@ -170,11 +179,12 @@ body .wrapper .container main .form-box .checkmark {
   width: 20px;
   height: 20px;
 }
-body .wrapper .container main .form-box form input {
+body .wrapper .container main .form-box form input#text {
   margin-left: 1.6rem;
   cursor: pointer;
-  font-size: 18px;
   outline: none;
+  letter-spacing: 0.5px;
+  font-family: "Josefin Sans", sans-serif, "Overpass", sans-serif, monospace;
 }
 body .wrapper .container main .todo-list {
   display: flex;
@@ -184,7 +194,7 @@ body .wrapper .container main .todo-list {
 body .wrapper .container main .todo-list ul {
   display: flex;
   flex-direction: column;
-  border-radius: 0.8rem;
+  border-radius: 0.4rem 0.4rem 0 0;
   width: 100%;
   justify-content: stretch;
   list-style: unset;
@@ -194,7 +204,6 @@ body .wrapper .container main .todo-list ul li {
   flex-direction: row;
   justify-content: flex-start;
   border-bottom: 0.1rem solid hsl(236, 33%, 92%);
-  gap: 35px;
   padding: 20px;
 }
 body .wrapper .container main .todo-list ul li input {
@@ -208,6 +217,7 @@ body .wrapper .container main .todo-list ul li .completed, body .wrapper .contai
   border-radius: 50%;
   width: 20px;
   height: 20px;
+  margin-right: 24px;
 }
 body .wrapper .container main .todo-list ul li .completed::before {
   content: "";
@@ -243,6 +253,27 @@ body .wrapper .container main .todo-list ul li .uncompleted:hover::before {
   border-radius: 50%;
   background: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
+body .wrapper .container main .todo-list ul li .uncompleted:hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  width: 18.5px;
+  height: 18.5px;
+}
+body .wrapper .container main .todo-list ul li .trash-btn {
+  cursor: pointer;
+  border: none;
+  background-image: url("./images/icon-cross.svg");
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  margin-left: auto;
+}
 body .wrapper .container main .dashboard {
   display: flex;
   flex-direction: row;
@@ -250,7 +281,6 @@ body .wrapper .container main .dashboard {
   width: 100%;
   margin-bottom: 28px;
   padding: 20px;
-  border-radius: 0.8rem;
 }
 body .wrapper .container main .dashboard button {
   font-size: 18px;
@@ -258,6 +288,7 @@ body .wrapper .container main .dashboard button {
   background: transparent;
   cursor: pointer;
   color: hsl(236, 9%, 61%);
+  font-family: "Josefin Sans", sans-serif, "Overpass", sans-serif, monospace;
   font-weight: 400;
 }
 body .wrapper .container main .dashboard .active {
@@ -265,7 +296,7 @@ body .wrapper .container main .dashboard .active {
   color: hsl(220, 98%, 61%);
 }
 body .wrapper .container main .dashboard .filters {
-  gap: 8px;
+  gap: 18px;
 }
 body .wrapper .container footer {
   text-align: center;
@@ -273,20 +304,38 @@ body .wrapper .container footer {
 }
 
 @media screen and (max-width: 600px) {
+  .wrapper form input#text {
+    width: 100%;
+    font-size: 14px;
+  }
+  .wrapper .todo-list {
+    font-size: 14px;
+  }
+  .wrapper .todo-list li .trash-btn {
+    display: block;
+  }
   .wrapper .todo-list .dashboard {
     justify-content: space-between;
+    border-radius: 0 0 0.8rem 0.8rem;
   }
   .wrapper .todo-list .dashboard .filters {
     display: none;
   }
+  .wrapper .todo-list .dashboard .clear-completed button {
+    font-size: 14px;
+  }
   .wrapper .control-for-mobile .dashboard {
     justify-content: center;
+    border-radius: 0.8rem;
   }
   .wrapper .control-for-mobile .dashboard .items-left {
     display: none;
   }
   .wrapper .control-for-mobile .dashboard .filters {
     display: flex;
+  }
+  .wrapper .control-for-mobile .dashboard .filters button {
+    font-size: 14px;
   }
   .wrapper .control-for-mobile .dashboard .clear-completed {
     display: none;
@@ -299,8 +348,19 @@ body .wrapper .container footer {
   }
 }
 @media screen and (min-width: 600px) {
+  .wrapper form input#text {
+    width: 100%;
+    font-size: 18px;
+  }
+  .wrapper .todo-list li .trash-btn {
+    display: none;
+  }
+  .wrapper .todo-list li:hover .trash-btn {
+    display: block;
+  }
   .wrapper .todo-list .dashboard {
     justify-content: space-between;
+    border-radius: 0 0 0.4rem 0.4rem;
   }
   .wrapper .todo-list .dashboard .filters {
     display: flex;

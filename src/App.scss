@@ -1,5 +1,6 @@
 @import "variables";
 
+
 *,
 *::before,
 *::after {
@@ -9,12 +10,14 @@
 }
 
 body {
+  all: unset;
   font-size: $body-copy-font-size;
-  font-family: $font-family-josefin-sans;
+  font-family: $font-family;
   font-weight: $font-weight-regular;
 
+
   .wrapper {
-    padding: 48px;
+    padding: 48px 24px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top;
@@ -34,7 +37,7 @@ body {
               input {
                 background-color: $very-dark-desaturated-blue;
                 border: transparent;
-                color: white;
+                color: $light-grayish-blue-dark-theme;
                 font-weight: $font-weight-regular;
 
                 &::placeholder {
@@ -48,14 +51,17 @@ body {
           .todo-list {
             ul {
               background-color: $very-dark-desaturated-blue;
-
               .uncompleted {
                 border-bottom-color: $very-dark-grayish-blue-secondary-dark-theme;
                 border-bottom-width: 1px;
-                color: $dark-grayish-blue-dark-theme;
+                color: $light-grayish-blue-dark-theme;
+                &:hover::after {
+                  background-color: $very-dark-desaturated-blue;
+                }
                 span {
                   border: 1px solid $very-dark-grayish-blue-dark-theme;
                 }
+
               }
 
               .completed {
@@ -72,7 +78,7 @@ body {
               .filters {
                 button {
                   &:hover {
-                    color: white;
+                    color: $light-grayish-blue-hover-dark-theme;
                     font-weight: $font-weight-bold;
                   }
                 }
@@ -80,7 +86,7 @@ body {
               .clear-completed {
                 button {
                   &:hover {
-                    color: white;
+                    color: $light-grayish-blue-hover-dark-theme;
                     font-weight: $font-weight-bold;
                   }
                 }
@@ -95,7 +101,7 @@ body {
               .filters {
                 button {
                   &:hover {
-                    color: white;
+                    color: $light-grayish-blue-hover-dark-theme;
                     font-weight: $font-weight-bold;
                   }
                 }
@@ -121,7 +127,7 @@ body {
               input {
                 background-color: white;
                 border: none;
-                color: black;
+                color: $very-dark-desaturated-blue;
                 font-weight: $font-weight-regular;
 
                 &::placeholder {
@@ -134,11 +140,13 @@ body {
           .todo-list {
             ul {
               background-color: white;
-
               .uncompleted {
-                color: $dark-grayish-blue;
+                color: $very-dark-desaturated-blue;
                 border-bottom-color: $very-light-grayish-blue;
                 border-bottom-width: 1px;
+                &:hover::after {
+                  background-color: white;
+                }
                 span {
                   border: 1px solid $light-grayish-blue-dark-theme;
                 }
@@ -200,6 +208,7 @@ body {
       header {
         display: flex;
         justify-content: space-between;
+        letter-spacing: 10px;
         margin-bottom: 48px;
         color: white;
 
@@ -223,7 +232,7 @@ body {
           display: flex;
           align-items: center;
           padding: 20px;
-          border-radius: 0.8rem;
+          border-radius: 0.4rem;
           margin-bottom: 28px;
           width: 100%;
           .checkbox {
@@ -240,11 +249,12 @@ body {
           }
 
           form {
-            input {
+            input#text {
               margin-left: 1.6rem;
               cursor: pointer;
-              font-size: 18px;
               outline: none;
+              letter-spacing: 0.5px;
+              font-family: $font-family;
             }
           }
 
@@ -258,7 +268,7 @@ body {
           ul {
             display: flex;
             flex-direction: column;
-            border-radius: 0.8rem;
+            border-radius: 0.4rem 0.4rem 0 0;
             width: 100%;
             justify-content: stretch;
             list-style: unset;
@@ -266,10 +276,10 @@ body {
             li {
               display: flex;
               flex-direction: row;
-              justify-content: flex-start;
+              justify-content:flex-start;
               border-bottom: 0.1rem solid $very-light-grayish-blue;
-              gap: 35px;
               padding: 20px;
+
 
               input {
                 cursor: pointer;
@@ -283,6 +293,7 @@ body {
                 border-radius: 50%;
                 width: 20px;
                 height: 20px;
+                margin-right: 24px;
               }
 
               .completed::before {
@@ -320,10 +331,29 @@ body {
                   border-radius: 50%;
                   background: $check-background;
                 }
+                &:hover::after {
+                  content: "";
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  border-radius: 50%;
+                  transform: translate(-50%, -50%);
+                  width: 18.5px;
+                  height: 18.5px;
+                }
 
               }
-
-
+              .trash-btn {
+                cursor: pointer;
+                border: none;
+                background-image: url("./images/icon-cross.svg");
+                width: 20px;
+                height: 20px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: transparent;
+                margin-left: auto;
+              }
             }
           }
         }
@@ -335,7 +365,6 @@ body {
           width: 100%;
           margin-bottom: 28px;
           padding: 20px;
-          border-radius: 0.8rem;
 
           button {
             font-size: 18px;
@@ -343,6 +372,7 @@ body {
             background: transparent;
             cursor: pointer;
             color: $dark-grayish-blue;
+            font-family: $font-family;
             font-weight: $font-weight-regular;
           }
           .active {
@@ -350,7 +380,7 @@ body {
             color: $primary-bright-blue;
           }
           .filters {
-            gap: 8px;
+            gap: 18px;
           }
         }
       }
@@ -366,12 +396,31 @@ body {
 
 @media screen and (max-width: 600px) {
   .wrapper {
+    form {
+      input#text {
+        width: 100%;
+        font-size: 14px;
+      }
+    }
     .todo-list {
+      font-size: 14px;
+      li {
+        .trash-btn {
+          display: block;
+        }
+      }
       .dashboard {
         justify-content: space-between;
+        border-radius: 0 0 0.8rem 0.8rem;
+
 
         .filters {
           display: none;
+        }
+        .clear-completed {
+          button {
+            font-size: 14px;
+          }
         }
       }
     }
@@ -379,6 +428,7 @@ body {
     .control-for-mobile {
       .dashboard {
         justify-content: center;
+        border-radius: 0.8rem;
 
         .items-left {
           display: none;
@@ -386,6 +436,9 @@ body {
 
         .filters {
           display: flex;
+          button {
+            font-size: 14px;
+          }
         }
 
         .clear-completed {
@@ -408,10 +461,26 @@ body {
 
 @media screen and (min-width: 600px) {
   .wrapper {
+    form {
+      input#text {
+        width: 100%;
+        font-size: 18px;
+      }
+    }
     .todo-list {
-
+      li {
+        .trash-btn {
+          display: none;
+        }
+        &:hover {
+          .trash-btn {
+            display: block;
+          }
+        }
+      }
       .dashboard {
         justify-content: space-between;
+        border-radius: 0 0 0.4rem 0.4rem;
 
         .filters {
           display: flex;

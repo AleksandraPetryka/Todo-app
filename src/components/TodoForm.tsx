@@ -27,7 +27,7 @@ const TodoForm = () => {
             <input type='checkbox' className='checkbox'></input>
             <span className='checkmark'></span>
             <form onSubmit={submitHandler}>
-                <input type='text' id='text' placeholder="Create new todo..." ref={todoTextInputRef}/>
+                <input type='text' id='text' placeholder="Create a new todo..." ref={todoTextInputRef}/>
             </form>
         </div>
 

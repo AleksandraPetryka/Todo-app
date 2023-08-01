@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Overpass:wght@100&display=swap');
+
 // Colors
 $primary-bright-blue: hsl(220, 98%, 61%);
 $check-background: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
@@ -22,6 +24,6 @@ $very-dark-grayish-blue-secondary-dark-theme: hsl(237, 14%, 26%);
 $body-copy-font-size: 18px;
 
 // Font
-$font-family-josefin-sans: 'Josefin Sans', sans-serif;
+$font-family: 'Josefin Sans', sans-serif, 'Overpass', sans-serif, monospace;
 $font-weight-regular: 400;
 $font-weight-bold: 700;
