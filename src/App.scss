@@ -27,17 +27,22 @@ body {
         main {
           .form-box {
             background-color: $very-dark-desaturated-blue;
+            .checkmark {
+              border: 1px solid $very-dark-grayish-blue-dark-theme;
+            }
+            form {
+              input {
+                background-color: $very-dark-desaturated-blue;
+                border: transparent;
+                color: white;
+                font-weight: $font-weight-regular;
 
-            input {
-              background-color: $very-dark-desaturated-blue;
-              border: transparent;
-              color: $dark-grayish-blue-dark-theme;
-              font-weight: $font-weight-regular;
-
-              &::placeholder {
-                color: $dark-grayish-blue-dark-theme;
+                &::placeholder {
+                  color: $dark-grayish-blue-dark-theme;
+                }
               }
             }
+
           }
 
           .todo-list {
@@ -48,18 +53,6 @@ body {
                 border-bottom-color: $very-dark-grayish-blue-secondary-dark-theme;
                 border-bottom-width: 1px;
                 color: $dark-grayish-blue-dark-theme;
-                &:hover::after {
-                  content: "";
-                  position: absolute;
-                  top: 50%;
-                  left: 50%;
-                  transform: translate(-50%, -50%);
-                  width: 19px;
-                  height: 19px;
-                  border-radius: 50%;
-                  background: $very-dark-desaturated-blue;
-                }
-
                 span {
                   border: 1px solid $very-dark-grayish-blue-dark-theme;
                 }
@@ -76,6 +69,22 @@ body {
             .dashboard {
               background-color: $very-dark-desaturated-blue;
               color: $dark-grayish-blue-dark-theme;
+              .filters {
+                button {
+                  &:hover {
+                    color: white;
+                    font-weight: $font-weight-bold;
+                  }
+                }
+              }
+              .clear-completed {
+                button {
+                  &:hover {
+                    color: white;
+                    font-weight: $font-weight-bold;
+                  }
+                }
+              }
             }
           }
 
@@ -83,6 +92,14 @@ body {
             .dashboard {
               background-color: $very-dark-desaturated-blue;
               color: $dark-grayish-blue-dark-theme;
+              .filters {
+                button {
+                  &:hover {
+                    color: white;
+                    font-weight: $font-weight-bold;
+                  }
+                }
+              }
             }
           }
         }
@@ -97,15 +114,19 @@ body {
         main {
           .form-box {
             background-color: white;
+            .checkmark {
+              border: 1px solid $light-grayish-blue-dark-theme;
+            }
+            form {
+              input {
+                background-color: white;
+                border: none;
+                color: black;
+                font-weight: $font-weight-regular;
 
-            input {
-              background-color: white;
-              border: none;
-              color: black;
-              font-weight: $font-weight-regular;
-
-              &::placeholder {
-                color: $dark-grayish-blue-dark-theme;
+                &::placeholder {
+                  color: $dark-grayish-blue-dark-theme;
+                }
               }
             }
           }
@@ -118,18 +139,6 @@ body {
                 color: $dark-grayish-blue;
                 border-bottom-color: $very-light-grayish-blue;
                 border-bottom-width: 1px;
-                &:hover::after {
-                  content: "";
-                  position: absolute;
-                  top: 50%;
-                  left: 50%;
-                  transform: translate(-50%, -50%);
-                  width: 19px;
-                  height: 19px;
-                  border-radius: 50%;
-                  background: white;
-                }
-
                 span {
                   border: 1px solid $light-grayish-blue-dark-theme;
                 }
@@ -146,6 +155,22 @@ body {
             .dashboard {
               background-color: white;
               color: $dark-grayish-blue;
+                .filters {
+                    button {
+                    &:hover {
+                        color: $very-dark-desaturated-blue;
+                        font-weight: $font-weight-bold;
+                    }
+                    }
+                }
+                .clear-completed {
+                    button {
+                    &:hover {
+                        color: $very-dark-desaturated-blue;
+                        font-weight: $font-weight-bold;
+                    }
+                    }
+                }
             }
           }
 
@@ -153,6 +178,15 @@ body {
             .dashboard {
               background-color: white;
               color: $dark-grayish-blue;
+              .filters {
+                button {
+                  &:hover {
+                    color: $very-dark-desaturated-blue;
+                    font-weight: $font-weight-bold;
+                  }
+                }
+
+              }
             }
           }
         }
@@ -192,13 +226,28 @@ body {
           border-radius: 0.8rem;
           margin-bottom: 28px;
           width: 100%;
-
-          input {
-            margin-right: 1.6rem;
+          .checkbox {
             cursor: pointer;
-            font-size: 18px;
-            outline: none;
+            position: absolute;
+            opacity: 0;
           }
+          .checkmark {
+            cursor: pointer;
+            position: relative;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+          }
+
+          form {
+            input {
+              margin-left: 1.6rem;
+              cursor: pointer;
+              font-size: 18px;
+              outline: none;
+            }
+          }
+
         }
 
         .todo-list {
@@ -274,6 +323,7 @@ body {
 
               }
 
+
             }
           }
         }
@@ -294,12 +344,11 @@ body {
             cursor: pointer;
             color: $dark-grayish-blue;
             font-weight: $font-weight-regular;
-
-            .active {
-              font-weight: $font-weight-bold;
-            }
           }
-
+          .active {
+            font-weight: $font-weight-bold;
+            color: $primary-bright-blue;
+          }
           .filters {
             gap: 8px;
           }
@@ -360,6 +409,7 @@ body {
 @media screen and (min-width: 600px) {
   .wrapper {
     .todo-list {
+
       .dashboard {
         justify-content: space-between;
 

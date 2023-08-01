@@ -23,13 +23,16 @@ body .wrapper.dark {
 body .wrapper.dark .container main .form-box {
   background-color: hsl(235, 24%, 19%);
 }
-body .wrapper.dark .container main .form-box input {
+body .wrapper.dark .container main .form-box .checkmark {
+  border: 1px solid hsl(233, 14%, 35%);
+}
+body .wrapper.dark .container main .form-box form input {
   background-color: hsl(235, 24%, 19%);
   border: transparent;
-  color: hsl(234, 11%, 52%);
+  color: white;
   font-weight: 400;
 }
-body .wrapper.dark .container main .form-box input::placeholder {
+body .wrapper.dark .container main .form-box form input::placeholder {
   color: hsl(234, 11%, 52%);
 }
 body .wrapper.dark .container main .todo-list ul {
@@ -39,17 +42,6 @@ body .wrapper.dark .container main .todo-list ul .uncompleted {
   border-bottom-color: hsl(237, 14%, 26%);
   border-bottom-width: 1px;
   color: hsl(234, 11%, 52%);
-}
-body .wrapper.dark .container main .todo-list ul .uncompleted:hover::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 19px;
-  height: 19px;
-  border-radius: 50%;
-  background: hsl(235, 24%, 19%);
 }
 body .wrapper.dark .container main .todo-list ul .uncompleted span {
   border: 1px solid hsl(233, 14%, 35%);
@@ -64,9 +56,21 @@ body .wrapper.dark .container main .todo-list .dashboard {
   background-color: hsl(235, 24%, 19%);
   color: hsl(234, 11%, 52%);
 }
+body .wrapper.dark .container main .todo-list .dashboard .filters button:hover {
+  color: white;
+  font-weight: 700;
+}
+body .wrapper.dark .container main .todo-list .dashboard .clear-completed button:hover {
+  color: white;
+  font-weight: 700;
+}
 body .wrapper.dark .container main .control-for-mobile .dashboard {
   background-color: hsl(235, 24%, 19%);
   color: hsl(234, 11%, 52%);
+}
+body .wrapper.dark .container main .control-for-mobile .dashboard .filters button:hover {
+  color: white;
+  font-weight: 700;
 }
 body .wrapper.light {
   background-color: hsl(0, 0%, 98%);
@@ -74,13 +78,16 @@ body .wrapper.light {
 body .wrapper.light .container main .form-box {
   background-color: white;
 }
-body .wrapper.light .container main .form-box input {
+body .wrapper.light .container main .form-box .checkmark {
+  border: 1px solid hsl(234, 39%, 85%);
+}
+body .wrapper.light .container main .form-box form input {
   background-color: white;
   border: none;
   color: black;
   font-weight: 400;
 }
-body .wrapper.light .container main .form-box input::placeholder {
+body .wrapper.light .container main .form-box form input::placeholder {
   color: hsl(234, 11%, 52%);
 }
 body .wrapper.light .container main .todo-list ul {
@@ -90,17 +97,6 @@ body .wrapper.light .container main .todo-list ul .uncompleted {
   color: hsl(236, 9%, 61%);
   border-bottom-color: hsl(236, 33%, 92%);
   border-bottom-width: 1px;
-}
-body .wrapper.light .container main .todo-list ul .uncompleted:hover::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 19px;
-  height: 19px;
-  border-radius: 50%;
-  background: white;
 }
 body .wrapper.light .container main .todo-list ul .uncompleted span {
   border: 1px solid hsl(234, 39%, 85%);
@@ -115,9 +111,21 @@ body .wrapper.light .container main .todo-list .dashboard {
   background-color: white;
   color: hsl(236, 9%, 61%);
 }
+body .wrapper.light .container main .todo-list .dashboard .filters button:hover {
+  color: hsl(235, 24%, 19%);
+  font-weight: 700;
+}
+body .wrapper.light .container main .todo-list .dashboard .clear-completed button:hover {
+  color: hsl(235, 24%, 19%);
+  font-weight: 700;
+}
 body .wrapper.light .container main .control-for-mobile .dashboard {
   background-color: white;
   color: hsl(236, 9%, 61%);
+}
+body .wrapper.light .container main .control-for-mobile .dashboard .filters button:hover {
+  color: hsl(235, 24%, 19%);
+  font-weight: 700;
 }
 body .wrapper .container {
   max-width: 540px;
@@ -150,8 +158,20 @@ body .wrapper .container main .form-box {
   margin-bottom: 28px;
   width: 100%;
 }
-body .wrapper .container main .form-box input {
-  margin-right: 1.6rem;
+body .wrapper .container main .form-box .checkbox {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+}
+body .wrapper .container main .form-box .checkmark {
+  cursor: pointer;
+  position: relative;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+body .wrapper .container main .form-box form input {
+  margin-left: 1.6rem;
   cursor: pointer;
   font-size: 18px;
   outline: none;
@@ -240,8 +260,9 @@ body .wrapper .container main .dashboard button {
   color: hsl(236, 9%, 61%);
   font-weight: 400;
 }
-body .wrapper .container main .dashboard button .active {
+body .wrapper .container main .dashboard .active {
   font-weight: 700;
+  color: hsl(220, 98%, 61%);
 }
 body .wrapper .container main .dashboard .filters {
   gap: 8px;

@@ -16,6 +16,7 @@ interface TodoContextProps {
     updateTodoHandler: (todoId: string) => void;
     removeCompletedTodos: () => void;
     setFilterStatus: (status: string) => void;
+    filterStatus: string;
 
 }
 export const TodoContext = createContext<TodoContextProps | undefined>(undefined)
@@ -67,7 +68,8 @@ export const TodoProvider = (props: { children: React.ReactNode }) => {
         addTodoHandler,
         updateTodoHandler,
         removeCompletedTodos,
-        setFilterStatus
+        setFilterStatus,
+        filterStatus
     }
 
     return (
