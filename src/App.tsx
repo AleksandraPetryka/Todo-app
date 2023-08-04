@@ -1,20 +1,18 @@
 import "./App.css";
 import Todos from "./components/Todos";
 import TodoForm from "./components/TodoForm";
-import { useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { useTheme } from "./context/useTheme";
 import TodoControlPanel from "./components/TodoControlPanel";
 
 function App() {
-  const [darkMode, setDarkMode] = useState<boolean>(true);
-
-  const themeClass: string = darkMode ? "dark" : "light";
+  const { themeClass } = useTheme();
 
   return (
     <div className={`wrapper ${themeClass}`}>
       <div className="container">
-        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Header />
         <main>
           <TodoForm />
           <section className="todo-list">
