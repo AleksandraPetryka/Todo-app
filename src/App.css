@@ -77,6 +77,9 @@ body .wrapper.dark .container main .control-for-mobile .dashboard .filters butto
   color: hsl(236, 33%, 92%);
   font-weight: 700;
 }
+body .wrapper.dark .container footer {
+  color: hsl(234, 11%, 52%);
+}
 body .wrapper.light {
   background-color: hsl(0, 0%, 98%);
 }
@@ -212,7 +215,8 @@ body .wrapper .container main .todo-list ul li input {
   position: absolute;
   opacity: 0;
 }
-body .wrapper .container main .todo-list ul li .completed, body .wrapper .container main .todo-list ul li .uncompleted {
+body .wrapper .container main .todo-list ul li .completed,
+body .wrapper .container main .todo-list ul li .uncompleted {
   cursor: pointer;
   position: relative;
   border-radius: 50%;

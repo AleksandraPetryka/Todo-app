@@ -1,6 +1,5 @@
 @import "variables";
 
-
 *,
 *::before,
 *::after {
@@ -15,7 +14,6 @@ body {
   font-family: $font-family;
   font-weight: $font-weight-regular;
 
-
   .wrapper {
     padding: 48px 24px;
     background-size: contain;
@@ -26,13 +24,14 @@ body {
       background-color: $very-dark-blue;
 
       .container {
-
         main {
           .form-box {
             background-color: $very-dark-desaturated-blue;
+
             .checkmark {
               border: 1px solid $very-dark-grayish-blue-dark-theme;
             }
+
             form {
               input {
                 background-color: $very-dark-desaturated-blue;
@@ -45,23 +44,24 @@ body {
                 }
               }
             }
-
           }
 
           .todo-list {
             ul {
               background-color: $very-dark-desaturated-blue;
+
               .uncompleted {
                 border-bottom-color: $very-dark-grayish-blue-secondary-dark-theme;
                 border-bottom-width: 1px;
                 color: $light-grayish-blue-dark-theme;
+
                 &:hover::after {
                   background-color: $very-dark-desaturated-blue;
                 }
+
                 span {
                   border: 1px solid $very-dark-grayish-blue-dark-theme;
                 }
-
               }
 
               .completed {
@@ -75,6 +75,7 @@ body {
             .dashboard {
               background-color: $very-dark-desaturated-blue;
               color: $dark-grayish-blue-dark-theme;
+
               .filters {
                 button {
                   &:hover {
@@ -83,6 +84,7 @@ body {
                   }
                 }
               }
+
               .clear-completed {
                 button {
                   &:hover {
@@ -98,6 +100,7 @@ body {
             .dashboard {
               background-color: $very-dark-desaturated-blue;
               color: $dark-grayish-blue-dark-theme;
+
               .filters {
                 button {
                   &:hover {
@@ -109,6 +112,9 @@ body {
             }
           }
         }
+        footer {
+          color: $dark-grayish-blue-dark-theme;
+        }
       }
     }
 
@@ -116,13 +122,14 @@ body {
       background-color: $very-light-gray;
 
       .container {
-
         main {
           .form-box {
             background-color: white;
+
             .checkmark {
               border: 1px solid $light-grayish-blue-dark-theme;
             }
+
             form {
               input {
                 background-color: white;
@@ -140,13 +147,16 @@ body {
           .todo-list {
             ul {
               background-color: white;
+
               .uncompleted {
                 color: $very-dark-desaturated-blue;
                 border-bottom-color: $very-light-grayish-blue;
                 border-bottom-width: 1px;
+
                 &:hover::after {
                   background-color: white;
                 }
+
                 span {
                   border: 1px solid $light-grayish-blue-dark-theme;
                 }
@@ -163,29 +173,7 @@ body {
             .dashboard {
               background-color: white;
               color: $dark-grayish-blue;
-                .filters {
-                    button {
-                    &:hover {
-                        color: $very-dark-desaturated-blue;
-                        font-weight: $font-weight-bold;
-                    }
-                    }
-                }
-                .clear-completed {
-                    button {
-                    &:hover {
-                        color: $very-dark-desaturated-blue;
-                        font-weight: $font-weight-bold;
-                    }
-                    }
-                }
-            }
-          }
 
-          .control-for-mobile {
-            .dashboard {
-              background-color: white;
-              color: $dark-grayish-blue;
               .filters {
                 button {
                   &:hover {
@@ -193,7 +181,31 @@ body {
                     font-weight: $font-weight-bold;
                   }
                 }
+              }
 
+              .clear-completed {
+                button {
+                  &:hover {
+                    color: $very-dark-desaturated-blue;
+                    font-weight: $font-weight-bold;
+                  }
+                }
+              }
+            }
+          }
+
+          .control-for-mobile {
+            .dashboard {
+              background-color: white;
+              color: $dark-grayish-blue;
+
+              .filters {
+                button {
+                  &:hover {
+                    color: $very-dark-desaturated-blue;
+                    font-weight: $font-weight-bold;
+                  }
+                }
               }
             }
           }
@@ -235,11 +247,13 @@ body {
           border-radius: 0.4rem;
           margin-bottom: 28px;
           width: 100%;
+
           .checkbox {
             cursor: pointer;
             position: absolute;
             opacity: 0;
           }
+
           .checkmark {
             cursor: pointer;
             position: relative;
@@ -257,7 +271,6 @@ body {
               font-family: $font-family;
             }
           }
-
         }
 
         .todo-list {
@@ -277,10 +290,9 @@ body {
             li {
               display: flex;
               flex-direction: row;
-              justify-content:flex-start;
+              justify-content: flex-start;
               border-bottom: 0.1rem solid $very-light-grayish-blue;
               padding: 20px;
-
 
               input {
                 cursor: pointer;
@@ -288,7 +300,8 @@ body {
                 opacity: 0;
               }
 
-              .completed, .uncompleted {
+              .completed,
+              .uncompleted {
                 cursor: pointer;
                 position: relative;
                 border-radius: 50%;
@@ -308,6 +321,7 @@ body {
                 border-radius: 50%;
                 background: $check-background;
               }
+
               .completed::after {
                 content: "";
                 position: absolute;
@@ -320,6 +334,7 @@ body {
                 background-position: center;
                 background-image: url("./images/icon-check.svg");
               }
+
               .uncompleted {
                 &:hover::before {
                   content: "";
@@ -332,6 +347,7 @@ body {
                   border-radius: 50%;
                   background: $check-background;
                 }
+
                 &:hover::after {
                   content: "";
                   position: absolute;
@@ -342,8 +358,8 @@ body {
                   width: 18.5px;
                   height: 18.5px;
                 }
-
               }
+
               .trash-btn {
                 cursor: pointer;
                 border: none;
@@ -375,16 +391,17 @@ body {
             font-family: $font-family;
             font-weight: $font-weight-regular;
           }
+
           .active {
             font-weight: $font-weight-bold;
             color: $primary-bright-blue;
           }
+
           .filters {
             gap: 18px;
           }
         }
       }
-
 
       footer {
         margin-top: 20px;
@@ -403,21 +420,24 @@ body {
         font-size: 14px;
       }
     }
+
     .todo-list {
       font-size: 14px;
+
       li {
         .trash-btn {
           display: block;
         }
       }
+
       .dashboard {
         justify-content: space-between;
         border-radius: 0 0 0.8rem 0.8rem;
 
-
         .filters {
           display: none;
         }
+
         .clear-completed {
           button {
             font-size: 14px;
@@ -438,6 +458,7 @@ body {
 
         .filters {
           display: flex;
+
           button {
             font-size: 14px;
           }
@@ -447,11 +468,11 @@ body {
           display: none;
         }
       }
-
     }
 
     &.dark {
       background-image: url("images/bg-mobile-dark.jpg");
+
       .todo-list {
         box-shadow: -1px 5px 20px 10px rgba(37, 39, 60, 0.2);
       }
@@ -459,12 +480,12 @@ body {
 
     &.light {
       background-image: url("images/bg-mobile-light.jpg");
-        .todo-list {
-            box-shadow: -1px 5px 20px 10px rgba(157, 162, 235, 0.3);
-        }
+
+      .todo-list {
+        box-shadow: -1px 5px 20px 10px rgba(157, 162, 235, 0.3);
+      }
     }
   }
-
 }
 
 @media screen and (min-width: 600px) {
@@ -475,17 +496,20 @@ body {
         font-size: 18px;
       }
     }
+
     .todo-list {
       li {
         .trash-btn {
           display: none;
         }
+
         &:hover {
           .trash-btn {
             display: block;
           }
         }
       }
+
       .dashboard {
         justify-content: space-between;
         border-radius: 0 0 0.4rem 0.4rem;
@@ -503,6 +527,7 @@ body {
 
     &.dark {
       background-image: url("images/bg-desktop-dark.jpg");
+
       .todo-list {
         box-shadow: -1px 5px 20px 10px rgba(37, 39, 60, 0.2);
       }
@@ -510,10 +535,10 @@ body {
 
     &.light {
       background-image: url("images/bg-desktop-light.jpg");
-        .todo-list {
-          box-shadow: -1px 5px 20px 10px rgba(157, 162, 235, 0.3);
-        }
+
+      .todo-list {
+        box-shadow: -1px 5px 20px 10px rgba(157, 162, 235, 0.3);
+      }
     }
   }
-
 }

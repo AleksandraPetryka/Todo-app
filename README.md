@@ -34,7 +34,7 @@ Users should be able to:
 ### Screenshot
 
 ![desktop-screenshot](./src/images/screenshot.jpg)
-![mobile screnshot](./src/images/mobile-screenshot.jpg)
+![mobile screenshot](./src/images/mobile-screenshot.jpg)
 
 ### Links
 

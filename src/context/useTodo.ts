@@ -1,14 +1,14 @@
-import { useContext } from 'react'
-import { TodoContext } from './TodoContext'
+import { useContext } from "react";
+import { TodoContext } from "./TodoContext";
 
 export const useTodo = () => {
-    const context = useContext(TodoContext);
+  const context = useContext(TodoContext);
 
-    if (!context) {
-        throw new Error('useTodo must be used within a TodoProvider');
-    }
+  if (!context) {
+    throw new Error("useTodo must be used within a TodoProvider");
+  }
 
-    return context
-}
+  return context;
+};
 
 export default useTodo;
